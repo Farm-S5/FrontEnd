@@ -1,0 +1,96 @@
+.container-register {
+    background: linear-gradient(180deg, rgba(4,85,191,1) 0%, rgba(30,105,190,1) 20%, rgba(45,120,219,1) 35%, rgba(67,142,242,1) 50%, rgba(116,176,255,1) 70%);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box-register {
+    width: 270px;
+    height: 320px;
+    background-color: rgba(255, 255, 255, 0.419);
+    backdrop-filter: blur(40px);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.title-register {
+    color: #0455bf;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.row-register input {
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(240, 248, 255, 0.688);
+    height: 15px;
+    margin-left: 10px;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.btn-register {
+    background: linear-gradient(180deg, rgba(4,85,191,1) 0%, rgba(67,142,242,1) 50%, rgba(116,176,255,1) 90%);
+    border: none;
+    border-radius: 3px;
+    margin-top: 15px;
+    width: 210px;
+    height: 30px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-register:hover {
+    background: linear-gradient(180deg, rgba(116,176,255,1) 0%, rgba(67,142,242,1) 50%, rgba(4,85,191,1) 90%);
+    /* background-color: #0455bf; */
+}
+
+
+.icon-register {
+    color: white;
+    margin-bottom: -4px;
+}
+
+.register-link-register {
+    font-size: 14px;
+    color: white;
+}
+
+.register-link-register p a{
+    color:#0455bf;
+    text-decoration: none;
+    font-weight:450;
+}
+
+.register-link-register p a:hover{
+    text-decoration:underline;
+}
+
+@media screen and (max-width: 480px) {
+    .box-register {
+        width: 70%; /* Adjust width to fit smaller screens */
+        max-width: 300px; /* Set maximum width */
+        height: 300px; /* Allow height to adjust based on content */
+    }
+
+    .title-register {
+        font-size: 24px; /* Decrease font size for smaller screens */
+    }
+
+    .row-register input {
+       
+        margin: 3px px; /* Adjust margin for better spacing */
+    }
+
+    .btn-register {
+        width: 100%; /* Make button full width */
+        max-width: 208px; /* Set maximum width */
+        height: 35px;
+    }
+}

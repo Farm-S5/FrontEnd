@@ -1,0 +1,61 @@
+.discussion-list {
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+    align-items: center;
+}
+  
+.discussion {
+    display: flex;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ccc;
+}
+
+.discussion:hover{
+    background-color: #ddd;
+}
+  
+  .profile-pic {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .discussion-content{
+    margin-left: 10px;
+  }
+  
+  .username {
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+    justify-content: flex-start;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .message {
+    color: #666;
+  }
+  
+  .btn-history {
+    
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 165px;
+    height: 30px;
+}
+
+.btn-history:hover {
+    background-color: #0056b3;
+}
