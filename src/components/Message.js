@@ -1,7 +1,11 @@
 import man from './assets/img/man.png';
 import './assets/css/Message.css';
+import { useNavigate } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 export function MessageForm() {
+    const { nameEnvoyeur } = useParams();
+    
     return (
         
         <div className="container-message">
@@ -15,7 +19,7 @@ export function MessageForm() {
                             <img src={man} alt="Profile Picture" />
                         </div>
                         <div class="discussion-message">
-                            <div class="username-message">John Doe</div>
+                            <div class="username-message">{nameEnvoyeur}</div>
                         </div>
                         <div>
                             <input type="text" className="message-bloc" />
