@@ -2,10 +2,41 @@ import man from './assets/img/man.png';
 import './assets/css/Message.css';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
+import { useEffect,useState } from "react";
 
 export function MessageForm() {
     const { nameEnvoyeur } = useParams();
+    const userId = localStorage.getItem("id");
+    const [personne, setPersonne] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch(
+              `https://backend-production-b756.up.railway.app/viewterrainpersonne/findTerrainPersonneNonValider/${userId}`
+            );
     
+            if (response.ok) {
+              const responseData = await response.json();
+              setPersonne(responseData);
+            } else {
+              console.warn("Server responded with an error:", response.status);
+              try {
+                const errorResponse = await response.json();
+                console.error("Server error details:", errorResponse);
+              } catch (error) {
+                console.error("Failed to parse server error details:", error);
+              }
+            }
+          } catch (error) {
+            console.error("An error occurred during the fetch:", error);
+          }
+        };
+    
+        fetchData();
+      }, [userId]);
+
+
     return (
         
         <div className="container-message">
