@@ -7,7 +7,9 @@ import { useEffect,useState } from "react";
 export function MessageForm() {
     const { nameEnvoyeur } = useParams();
     const userId = localStorage.getItem("id");
-    const [personne, setPersonne] = useState(null);
+    const [receveur, setPersonne] = useState(null);
+    const [contenu,setContenu] =useState('');
+    const [response, setResponse] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,14 +39,37 @@ export function MessageForm() {
       }, [userId]);
 
 
+
+      const handleResponse = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch(`https://backend-production-b756.up.railway.app/message/insertmessage`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify({
+                    envoyeur: receveur,
+                    receveur: nameEnvoyeur,
+                    contenu: contenu,
+                }),
+            });
+            const data = await response.json();
+            setResponse(data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+    
+
     return (
         
         <div className="container-message">
             <div  className="title-message">
-                <h1>Enter your message</h1>
+                <h1>Repondre aux messages</h1>
             </div>
             <div className="box-message">
-                <form className="message-form">
+                <form className="message-form" onSubmit={handleResponse}>
                     <div className="row-message">
                         <div class="pic-message">
                             <img src={man} alt="Profile Picture" />
@@ -53,9 +78,10 @@ export function MessageForm() {
                             <div class="username-message">{nameEnvoyeur}</div>
                         </div>
                         <div>
-                            <input type="text" className="message-bloc" />
-                            <button type="submit" className="btn">SEND</button>
+                            <input type="text" className="message-bloc" value={contenu} onChange={(e) => setContenu(e.target.value)} />
+                            <button type="submit" className="btn">Envoyer</button>
                         </div>
+                        {response && <p>{response.success || response.error}</p>}
                     </div>
                 </form>
             </div>

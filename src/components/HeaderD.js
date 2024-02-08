@@ -13,7 +13,7 @@ export function HeaderForm() {
                 <img src={logo} alt="Logo" />
             </div>
             <ul className="navbar-links">
-                <li><a href="#">Chat list</a></li>
+                <li><a href="#">Messagerie</a></li>
             </ul>
             <div className="navbar-icon">
                 <button type="submit" className="history">HISTORY</button>
