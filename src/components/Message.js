@@ -43,23 +43,26 @@ export function MessageForm() {
       const handleResponse = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://backend-production-b756.up.railway.app/message/insertmessage`, {
+            const formData = new URLSearchParams();
+            formData.append('envoyeur', receveur);
+            formData.append('receveur', nameEnvoyeur);
+            formData.append('contenu', contenu);
+    
+            const response = await fetch(`https://backend-production-b756.up.railway.app/messagerie/insertmessage`, {
                 method: 'POST',
                 headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded',
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: JSON.stringify({
-                    envoyeur: receveur,
-                    receveur: nameEnvoyeur,
-                    contenu: contenu,
-                }),
+                body: formData,
             });
+    
             const data = await response.json();
             setResponse(data);
         } catch (error) {
             console.error('Error:', error);
         }
     };
+    
     
 
     return (
