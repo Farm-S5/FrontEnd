@@ -54,7 +54,7 @@ export function LoginForm() {
                         <input
                             type="text"
                             id="username"
-                            placeholder="User 1: Yasuo User 2: Zed"
+                            placeholder="User 1: Yasuo / User 2: Zed"
                             value={nameUser}
                             onChange={(e) => setNameUser(e.target.value)}
                         />
