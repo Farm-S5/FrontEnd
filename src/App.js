@@ -16,7 +16,7 @@ function App() {
             <Route path="/Login" exact element ={<LoginP/>} />
             <Route path="/Discussion" exact element ={<ListPersonP/>} />
             <Route path="/Message/:nameEnvoyeur" element={<MessageP />} />
-            <Route path="History" exact element ={<HistorP/>} />
+            <Route path="/History" exact element ={<HistorP/>} />
             
           </Route>
         </Routes>

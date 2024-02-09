@@ -3,9 +3,22 @@ import './assets/css/Header.css';
 import './assets/css/HeaderM.css';
 import logo from './assets/img/logo.png';
 import { IoLogOut } from "react-icons/io5";
-
+import { useNavigate } from "react-router-dom";
 
 export function HeaderForm() {
+
+    const navigate = useNavigate();
+
+    const handleLogout = () =>{
+        localStorage.clear();
+        navigate('/');
+    };
+
+    const handleDiscusion = () =>{
+        navigate('/Discussion');
+    };
+
+
   return (
     <div>
         <nav className="navbar">
@@ -16,8 +29,8 @@ export function HeaderForm() {
                 <li><a href="#">HISTORY</a></li>
             </ul>
             <div className="navbar-icon">
-                <button type="submit" className="history">DISCUSSION</button>
-                <button className="login-button" /*onClick={handleLogout}*/> <IoLogOut className="iconM" /> </button>
+                <button type="submit" className="history" onClick={handleDiscusion}>DISCUSSION</button>
+                <button className="login-button" onClick={handleLogout}> <IoLogOut className="iconM" /> </button>
             </div>
         </nav>
     </div>

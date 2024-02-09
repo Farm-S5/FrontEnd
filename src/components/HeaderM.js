@@ -15,6 +15,11 @@ export function HeaderForm() {
         navigate('/');
     };
 
+    
+    const handleHistory = () =>{
+      navigate('/History');
+  };
+
     useEffect(() => {
         const fetchPersonne = async () => {
           try {
@@ -48,7 +53,7 @@ export function HeaderForm() {
             )}
             </ul>
             <div className="navbar-icon">
-                <button type="submit" className="history">HISTORY</button>
+                <button type="submit" className="history" onClick={handleHistory}>HISTORY</button>
                 <button className="login-button" onClick={handleDisconnect}> <IoLogOut className="iconM" /> </button>
             </div>
         </nav>

@@ -13,6 +13,10 @@ export function HeaderForm() {
         localStorage.clear();
         navigate('/');
     };
+    
+    const handleHistory = () =>{
+        navigate('/History');
+    };
 
   return (
     <div>
@@ -24,7 +28,7 @@ export function HeaderForm() {
                 <li><a href="#">Messagerie</a></li>
             </ul>
             <div className="navbar-icon">
-                <button type="submit" className="history">HISTORY</button>
+                <button type="submit" className="history" onClick={handleHistory}>HISTORY</button>
                 <button className="login-button" onClick={handleLogout}> <IoLogOut className="iconM" /> </button>
             </div>
         </nav>

@@ -14,12 +14,9 @@ export function LoginForm() {
     }
 
     async function checkPersonne(e) {
-        e.preventDefault(); // Empêcher le comportement par défaut du formulaire
-
+        e.preventDefault();
         let item = { nameUser, passUser };
-
         console.log(nameUser, passUser);
-
         try {
             let response = await fetch("https://backend-production-b756.up.railway.app/personne/checkPersonne", {
                 method: 'POST',
