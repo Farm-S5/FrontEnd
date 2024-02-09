@@ -80,7 +80,7 @@ export function HistoryForm() {
               ))
             ) : (
               <tr className="content">
-                <td colSpan="5">Loading...</td>
+                <td colSpan="5">En attente de resultats...</td>
               </tr>
             )}
           </tbody>
