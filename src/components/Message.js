@@ -7,7 +7,7 @@ import { useEffect,useState } from "react";
 export function MessageForm() {
     const { nameEnvoyeur } = useParams();
     const userId = localStorage.getItem("id");
-    const [receveur, setPersonne] = useState(null);
+    const [receveur, setPersonne] = useState('');
     const [contenu,setContenu] =useState('');
     const [response, setResponse] = useState('');
 
@@ -15,12 +15,12 @@ export function MessageForm() {
         const fetchData = async () => {
           try {
             const response = await fetch(
-              `https://backend-production-b756.up.railway.app/viewterrainpersonne/findTerrainPersonneNonValider/${userId}`
+              `https://backend-production-b756.up.railway.app/personne/findPersonneById/${userId}`
             );
     
             if (response.ok) {
               const responseData = await response.json();
-              setPersonne(responseData);
+              setPersonne(responseData.nameUser);
             } else {
               console.warn("Server responded with an error:", response.status);
               try {

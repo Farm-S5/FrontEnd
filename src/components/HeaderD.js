@@ -3,9 +3,17 @@ import './assets/css/Header.css';
 import './assets/css/HeaderM.css';
 import logo from './assets/img/logo.png';
 import { IoLogOut } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 
 export function HeaderForm() {
+    const navigate = useNavigate();
+
+    const handleLogout = () =>{
+        localStorage.clear();
+        navigate('/');
+    };
+
   return (
     <div>
         <nav className="navbar">
@@ -17,7 +25,7 @@ export function HeaderForm() {
             </ul>
             <div className="navbar-icon">
                 <button type="submit" className="history">HISTORY</button>
-                <button className="login-button" /*onClick={handleLogout}*/> <IoLogOut className="iconM" /> </button>
+                <button className="login-button" onClick={handleLogout}> <IoLogOut className="iconM" /> </button>
             </div>
         </nav>
     </div>

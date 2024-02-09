@@ -45,7 +45,6 @@ export function ListPersonForm() {
             console.error('An error occurred during the fetch:', error);
           }
         };
-      
         if (personneName) {
           fetchPersonneMessage();
         }
