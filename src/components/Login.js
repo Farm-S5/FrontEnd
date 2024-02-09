@@ -48,7 +48,6 @@ export function LoginForm() {
         <div className="container">
             <div className="box">
                 <h2 className="title">Login</h2>
-                {/* Utilisez onSubmit pour intercepter le soumission du formulaire */}
                 <form className="loginform" onSubmit={checkPersonne}>
                     <div className="row">
                         <label htmlFor="username"><FaUser className="icon" /></label>

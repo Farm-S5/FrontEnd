@@ -1,67 +1,52 @@
-import chat from './assets/img/chat.png';
-import './assets/css/History.css';
+import chat from "./assets/img/chat.png";
+import "./assets/css/History.css";
+import React, { useEffect, useState } from "react";
 
 export function HistoryForm() {
-    return (
-        <div className="content">
-            <div  className="title-h1">
-                <h1>Your simulation</h1>
-            </div>
-            <div className="table-wrapper">
-                <table className="table-content">
-                <thead className="head-content">
-                    <tr className="title-content">
-                        <th>CULTURE NAME</th>
-                        <th>YIELD</th>
-                        <th>SIZE</th>
-                        <th>TYPE OF CULTURE</th>
-                    </tr>
-                </thead>
-                <tbody className="body-content">
-                    <tr className="text-content">
-                        <td>Tsy aiko</td>
-                        <td>1000ar</td>
-                        <td>1000 Ar</td>
-                        <td>2000 Ar</td>
-                    </tr>
-                    <tr className="text-content">
-                        <td>Tsy aiko</td>
-                        <td>1000ar</td>
-                        <td>2 m</td>
-                        <td>tsy aiko</td>
-                    </tr>
-                    
-                </tbody>
-                </table>
-            </div>
-            <div  className="title-h1">
-                <h1>Land</h1>
-            </div>
-            <div className="table-wrapper">
-                <table className="table-content">
-                <thead className="head-content">
-                    <tr className="title-content">
-                        <th>IMAGE</th>
-                        <th>OWNER</th>
-                        <th>NUMBER OF PARCEL</th>
-                        <th>LONGITUDE</th>
-                        <th>LATITUDE</th>
-                    </tr>
-                </thead>
-                <tbody className="body-content">
-                    <tr className="text-content">
-                        <td><img src={chat} alt="parcel" className="img-history" /></td>
-                        <td>Olona</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>5</td>
-                    </tr>
-                    
-                </tbody>
-                </table>
-            </div>
-        </div>
-    );
+    const [data, setData] = useState(null);
+    
+  return (
+    <div className="content">
+      <div className="title-h1">
+        <h1>Your simulation</h1>
+      </div>
+      <div className="table-wrapper">
+        <table className="table-content">
+          <thead className="head-content">
+            <tr className="title-content">
+              <th>OWNER</th>
+              <th colSpan="2">CULTURE</th>
+              <th colSpan="2">PARCEL</th>
+            </tr>
+            <tr className="subtitle-content">
+              <th>Name</th>
+              <th>Culture</th>
+              <th>Prix M²</th>
+              <th>id Parcelle</th>
+              <th>Superficie</th>
+            </tr>
+          </thead>
+          <tbody className="body-content">
+            {data ? (
+              data.map((item) => (
+                <tr className="text-content" key={item.idParcelle}>
+                  <td>{item.nomUser}</td>
+                  <td>{item.nomCulture}</td>
+                  <td>{item.prixM2}</td>
+                  <td>{item.idParcelle}</td>
+                  <td>{item.superficie}</td>
+                </tr>
+              ))
+            ) : (
+              <tr className="content">
+                <td colSpan="5">Loading...</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 }
 
 export default HistoryForm;
